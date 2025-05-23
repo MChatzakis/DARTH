@@ -1,6 +1,6 @@
 
 <p align="center">
-<img width="300" src="./assets/darth-logo.png"/>
+<img width="500" src="./assets/darth-logo.png"/>
 </p>
 
 
