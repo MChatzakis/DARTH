@@ -20,3 +20,9 @@ This paper appeared in SIGMOD2026.
 * Manos (Emmanouil) Chatzakis (Universite Paris Cite)
 * Yannis Papakonstantinou (Google)
 * Themis Palpanas (Universite Paris Cite
+
+
+## About
+This repository contains the implementation and integration of DARTH in the FAISS library, developed by Facebook Research. 
+All original FAISS code and components remain under their respective licenses and rules as selected by the developers. Please refer to the FAISS license for details regarding using the original library. 
+We do not claim any ownership or rights over the original FAISS library: all rights and acknowledgments are retained by the original authors.
