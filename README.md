@@ -17,6 +17,11 @@ Through a wide range of experiments, we demonstrate that DARTH effectively meets
 
 <b>This paper appeared in [SIGMOD2026](https://2026.sigmod.org/).</b>
 
+## Datasets
+Due to space constraints, we cannot include the datasets, training and testing queries. To use DARTH or reproduce the experiments, please refer to the original dataset repositories. 
+* [SIFT and GIST](http://corpus-texmex.irisa.fr/)
+* [DEEP and Text2Image](https://research.yandex.com/blog/benchmarks-for-billion-scale-similarity-search)
+* [Glove](https://nlp.stanford.edu/projects/glove/)
 
 ## Contributors
 * [Manos (Emmanouil) Chatzakis](https://mchatzakis.github.io/) (Universite Paris Cite)
