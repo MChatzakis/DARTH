@@ -1,10 +1,10 @@
 
 <p align="center">
-<img width="130" src="./assets/darth-logo.png"/>
+<img width="300" src="./assets/darth-logo.png"/>
 </p>
 
 
-<h1 align="center">DARTH</h1>
+<!--<h1 align="center">DARTH</h1>-->
 <h2 align="center">Declarative Recall Through Early Termination for Approximate Nearest Neighbor Search</h2>
 
 Approximate Nearest Neighbor Search (ANNS) presents an inherent tradeoff between performance and recall (i.e., result quality). Each ANNS algorithm provides its own algorithm-dependent parameters to allow applications to influence the recall/performance tradeoff of their searches. This situation is doubly problematic. 
