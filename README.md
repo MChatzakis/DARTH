@@ -14,3 +14,9 @@ To solve these problems, we present DARTH, a method that uses target declarative
 Through a wide range of experiments, we demonstrate that DARTH effectively meets user-defined recall targets while achieving significant speedups, up to 14.6x (average: 6.8x; median: 5.7x) faster than the search without early termination for HNSW and up to 41.8x (average: 13.6x; median: 8.1x) for IVF. 
 This paper appeared in SIGMOD2026.
 
+
+## Contributors
+
+* Manos (Emmanouil) Chatzakis (Universite Paris Cite)
+* Yannis Papakonstantinou (Google)
+* Themis Palpanas (Universite Paris Cite
