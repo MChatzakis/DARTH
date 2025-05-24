@@ -15,7 +15,22 @@ This process usually takes a lot of effort. Even worse, the chosen parameters ma
 To solve these problems, we present DARTH, a method that uses target declarative recall. DARTH uses a novel method for providing target declarative recall on top of an ANNS index by employing an adaptive early termination strategy integrated into the search algorithm. 
 Through a wide range of experiments, we demonstrate that DARTH effectively meets user-defined recall targets while achieving significant speedups, up to 14.6x (average: 6.8x; median: 5.7x) faster than the search without early termination for HNSW and up to 41.8x (average: 13.6x; median: 8.1x) for IVF. 
 
-<b>This paper appeared in [SIGMOD2026](https://2026.sigmod.org/).</b>
+<b>This paper appeared in [SIGMOD2026](https://2026.sigmod.org/).</b> A preprint is available on [arXiv]().
+
+## Reference
+To cite our work, please use:
+```
+@article{chatzakis2025darth,
+  title={DARTH: Declarative Recall Through Early Termination for Approximate Nearest Neighbor Search},
+  author={Chatzakis, Manos and Papakonstantinou, Yannis and Palpanas, Themis},
+  journal={Proceedings of the ACM on Management of Data},
+  volume={},
+  number={},
+  pages={},
+  year={2026},
+  publisher={ACM New York, NY, USA}
+}
+```
 
 ## Installation and Usage
 To use DARTH for C++, FAISS and its corresponding dependencies (e.g., CMake) should be installed. Please refer to [FAISS installation manual](todo) for this.
