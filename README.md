@@ -59,9 +59,9 @@ Due to space constraints, we cannot include the datasets, training and testing q
 * [Glove](https://nlp.stanford.edu/projects/glove/)
 
 ## Contributors
-* [Manos (Emmanouil) Chatzakis](https://mchatzakis.github.io/) (Universite Paris Cite)
-* [Yannis Papakonstantinou](https://www.linkedin.com/in/yannispapakonstantinou/) (Google Cloud)
-* [Themis Palpanas](https://helios2.mi.parisdescartes.fr/~themisp/) (Universite Paris Cite)
+* [Manos (Emmanouil) Chatzakis](https://mchatzakis.github.io/) (Universite Paris Cite, LIPADE)
+* [Yannis Papakonstantinou](https://www.linkedin.com/in/yannispapakonstantinou/) (Google Cloud & University of California San Diego)
+* [Themis Palpanas](https://helios2.mi.parisdescartes.fr/~themisp/) (Universite Paris Cite, LIPADE)
 
 
 ## About
