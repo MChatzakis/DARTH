@@ -43,6 +43,15 @@ pip install -r requirements.txt
 
 Pretrained models from the paper are provided in the [models](./todo) directory.
 
+To compile DARTH with FAISS, use:
+```bash
+cmake -B build -S . # You may include/exclude any modular part of FAISS in the compilation, e.g. -DFAISS_ENABLE_GPU=OFF -DBUILD_SHARED_LIBS=ON
+make -C build -j faiss # Build FAISS with DARTH
+make -C build -j darth-demos # To compile some demo scripts for DARTH
+```
+
+Usage examples and demos are located under the [darth-demos](todo). The scripts for the experiments we performed in the original paper can be found under the [experiments] directory. 
+
 ## Datasets
 Due to space constraints, we cannot include the datasets, training and testing queries. To use DARTH or reproduce the experiments, please refer to the original dataset repositories. 
 * [SIFT and GIST](http://corpus-texmex.irisa.fr/)
