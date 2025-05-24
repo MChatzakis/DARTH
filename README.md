@@ -21,18 +21,14 @@ Through a wide range of experiments, we demonstrate that DARTH effectively meets
 To cite our work, please use:
 ```
 @article{chatzakis2025darth,
-  title={DARTH: Declarative Recall Through Early Termination for Approximate Nearest Neighbor Search},
-  author={Chatzakis, Manos and Papakonstantinou, Yannis and Palpanas, Themis},
-  journal={Proceedings of the ACM on Management of Data},
-  volume={},
-  number={},
-  pages={},
-  year={2026},
-  publisher={ACM New York, NY, USA}
+  
 }
 ```
 
 ## Installation and Usage
+
+⚠️ Repository under construction. Coming Soon ⚠️
+<!--
 To use DARTH for C++, FAISS and its corresponding dependencies (e.g., CMake) should be installed. Please refer to [FAISS installation manual](todo) for this.
 On top of FAISS, DARTH requires an active installation of [LightGBM](todo) library visible in the PATH.
 
@@ -51,6 +47,7 @@ make -C build -j darth-demos # To compile some demo scripts for DARTH
 ```
 
 Usage examples and demos are located under the [darth-demos](todo). The scripts for the experiments we performed in the original paper can be found under the [experiments](todo) directory. 
+-->
 
 ## Datasets
 Due to space constraints, we cannot include the datasets, training and testing queries. To use DARTH or reproduce the experiments, please refer to the original dataset repositories. 
