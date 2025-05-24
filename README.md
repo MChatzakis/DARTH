@@ -17,6 +17,17 @@ Through a wide range of experiments, we demonstrate that DARTH effectively meets
 
 <b>This paper appeared in [SIGMOD2026](https://2026.sigmod.org/).</b>
 
+## Installation and Usage
+To use DARTH for C++, FAISS and its corresponding dependencies (e.g., CMake) should be installed. Please refer to [FAISS installation manual](todo) for this.
+On top of FAISS, DARTH requires an active installation of [LightGBM](todo) library visible in the PATH.
+
+If you are interested in reproducing the graphs or training the models from scratch, please install the required Python packages:
+```bash
+pip install -r requirements.txt
+```
+
+Pretrained models from the paper are provided in the [models](./todo) directory.
+
 ## Datasets
 Due to space constraints, we cannot include the datasets, training and testing queries. To use DARTH or reproduce the experiments, please refer to the original dataset repositories. 
 * [SIFT and GIST](http://corpus-texmex.irisa.fr/)
