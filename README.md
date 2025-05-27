@@ -21,7 +21,13 @@ Through a wide range of experiments, we demonstrate that DARTH effectively meets
 To cite our work, please use:
 ```
 @article{chatzakis2025darth,
-  
+    title={DARTH: Declarative Recall Through Early Termination for Approximate Nearest Neighbor Search}, 
+    author={Manos Chatzakis and Yannis Papakonstantinou and Themis Palpanas},
+    year={2025},
+    eprint={2505.19001},
+    archivePrefix={arXiv},
+    primaryClass={cs.DB},
+    url={https://arxiv.org/abs/2505.19001}, 
 }
 ```
 
