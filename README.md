@@ -15,7 +15,7 @@ This process usually takes a lot of effort. Even worse, the chosen parameters ma
 To solve these problems, we present DARTH, a method that uses target declarative recall. DARTH uses a novel method for providing target declarative recall on top of an ANNS index by employing an adaptive early termination strategy integrated into the search algorithm. 
 Through a wide range of experiments, we demonstrate that DARTH effectively meets user-defined recall targets while achieving significant speedups, up to 14.6x (average: 6.8x; median: 5.7x) faster than the search without early termination for HNSW and up to 41.8x (average: 13.6x; median: 8.1x) for IVF. 
 
-<b>This paper appeared in [SIGMOD2026](https://2026.sigmod.org/).</b> A preprint is available on [arXiv](todo).
+<b>This paper appeared in [SIGMOD2026](https://2026.sigmod.org/).</b> A preprint is available on [arXiv](https://arxiv.org/abs/2505.19001v1#).
 
 ## Reference
 To cite our work, please use:
