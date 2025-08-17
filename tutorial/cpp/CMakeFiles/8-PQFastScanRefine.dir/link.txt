@@ -1,0 +1,1 @@
+/usr/bin/c++ "CMakeFiles/8-PQFastScanRefine.dir/8-PQFastScanRefine.cpp.o" -o 8-PQFastScanRefine  -Wl,-rpath,/home/mchatzakis/cfaiss/faiss ../../faiss/libfaiss.so

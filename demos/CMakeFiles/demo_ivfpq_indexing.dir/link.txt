@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/demo_ivfpq_indexing.dir/demo_ivfpq_indexing.cpp.o -o demo_ivfpq_indexing  -Wl,-rpath,/home/mchatzakis/cfaiss/faiss ../faiss/libfaiss.so

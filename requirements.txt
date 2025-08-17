@@ -1,0 +1,15 @@
+dask==2024.11.2
+dask-expr==1.1.19
+faiss-cpu==1.8.0.post1
+fonttools==4.53.1
+h5py==3.12.1
+lightgbm==4.5.0
+matplotlib==3.9.2
+numpy==1.26.4
+pandas==2.2.2
+scikit-learn==1.5.1
+scipy==1.14.1
+tqdm==4.66.5
+umap==0.1.1
+xgboost==2.1.1
+zipp==3.21.0

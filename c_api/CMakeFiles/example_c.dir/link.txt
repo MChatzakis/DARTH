@@ -1,0 +1,1 @@
+/usr/bin/cc CMakeFiles/example_c.dir/example_c.c.o -o example_c  -Wl,-rpath,/home/mchatzakis/cfaiss/c_api:/home/mchatzakis/cfaiss/faiss libfaiss_c.so -Wl,-rpath-link,/home/mchatzakis/cfaiss/faiss

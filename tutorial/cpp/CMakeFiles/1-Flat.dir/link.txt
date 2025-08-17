@@ -1,0 +1,1 @@
+/usr/bin/c++ "CMakeFiles/1-Flat.dir/1-Flat.cpp.o" -o 1-Flat  -Wl,-rpath,/home/mchatzakis/cfaiss/faiss ../../faiss/libfaiss.so

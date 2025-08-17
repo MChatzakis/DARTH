@@ -1,0 +1,1 @@
+/usr/bin/c++ "CMakeFiles/7-PQFastScan.dir/7-PQFastScan.cpp.o" -o 7-PQFastScan  -Wl,-rpath,/home/mchatzakis/cfaiss/faiss ../../faiss/libfaiss.so

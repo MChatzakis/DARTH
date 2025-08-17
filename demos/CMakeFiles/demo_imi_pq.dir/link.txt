@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/demo_imi_pq.dir/demo_imi_pq.cpp.o -o demo_imi_pq  -Wl,-rpath,/home/mchatzakis/cfaiss/faiss ../faiss/libfaiss.so

@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -shared -Wl,-soname,_swigfaiss_avx2.so -o _swigfaiss_avx2.so CMakeFiles/swigfaiss_avx2.dir/CMakeFiles/swigfaiss_avx2.dir/swigfaiss_avx2PYTHON_wrap.cxx.o  -Wl,-rpath,/home/mchatzakis/cfaiss/faiss:/home/mchatzakis/cfaiss/faiss/python ../libfaiss_avx2.so libfaiss_python_callbacks.so /usr/lib/gcc/x86_64-linux-gnu/9/libgomp.so -lpthread

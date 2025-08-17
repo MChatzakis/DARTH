@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/demo_nndescent.dir/demo_nndescent.cpp.o -o demo_nndescent  -Wl,-rpath,/home/mchatzakis/cfaiss/faiss ../faiss/libfaiss.so
