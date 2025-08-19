@@ -17,8 +17,8 @@ Through a wide range of experiments, we demonstrate that DARTH effectively meets
 
 
 ## Installation
-The installation prerequisites are can be found in the FAISS install instructions, which can be found [here](./faiss_docs/INSTALL.md).
-To run DARTH, it is required that LightGBM is installed and be put in /HOME/lightgbm-install.
+The installation prerequisites can be found in the FAISS installation instructions, which can be found [here](./docs/INSTALL.md).
+To run DARTH, it is required that LightGBM is installed and is put in /HOME/lightgbm-install.
 To compile FAISS with DARTH, use:
 ```bash
 cmake -B build -S . # For the paper, we used: -DFAISS_ENABLE_GPU=OFF -DBUILD_SHARED_LIBS=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
@@ -44,7 +44,7 @@ Our evaluation utilized the following datasets:
 * [DEEP and Text2Image](https://research.yandex.com/blog/benchmarks-for-billion-scale-similarity-search)
 * [Glove](https://nlp.stanford.edu/projects/glove/)
 
-The datasets need to go through a minor preprocessing step to be used with DARTH. For details, refer to the scripts of [utils](./notebooks_scripts/utils).
+The datasets require a minor preprocessing step to be used with DARTH. For details, refer to the scripts of [utils](./notebooks_scripts/utils).
 
 ## Contributors
 * [Manos (Emmanouil) Chatzakis](https://mchatzakis.github.io/) (LIPADE, Universite Paris Cite)
