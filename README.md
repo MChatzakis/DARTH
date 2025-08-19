@@ -1,5 +1,5 @@
 
-<h2 align="center">⚠️ Repository under construction. Source code is being cleaned. ⚠️ </h2>
+<!-- <h2 align="center">⚠️ Repository under construction. Source code is being cleaned. ⚠️ </h2> -->
 
 <p align="center">
 <img width="600" src="./assets/darth-logo.png"/>
@@ -43,6 +43,7 @@ Our evaluation utilized the following datasets:
 * [SIFT and GIST](http://corpus-texmex.irisa.fr/)
 * [DEEP and Text2Image](https://research.yandex.com/blog/benchmarks-for-billion-scale-similarity-search)
 * [Glove](https://nlp.stanford.edu/projects/glove/)
+
 The datasets need to go through a minor preprocessing step to be used with DARTH. For details, refer to the scripts of [utils](./notebooks_scripts/utils).
 
 ## Contributors
