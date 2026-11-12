@@ -6,7 +6,7 @@
 
 <h3 align="center">Manos Chatzakis, Yannis Papakonstantinou, Themis Palpanas<h3>
  
-<h3 align="center">⚠️ Please note that the code recently went under heavy refactoring. Please contact us if you notice any issues ⚠️ </h3>
+<h4 align="center">⚠️ Please note that the code recently went under heavy refactoring. Please contact us if you notice any issues ⚠️ </h3>
 
 DARTH and DARTH+ enable declarative recall for approximate nearest-neighbor search: specify a target recall, and a learned predictor estimates when to stop each query. 
 Their adaptive early termination adjusts to query difficulty and
@@ -16,7 +16,7 @@ DARTH+ extends DARTH with more efficient training data collection and
 query-dimension-aware prediction features. Its lower-bound variant can also
 provide optional probabilistic lower bounds on recall.
 
-## Compilation
+## How to run
 
 Build the pipeline from the repository root:
 
@@ -32,6 +32,17 @@ find LightGBM, add its library directory to `LD_LIBRARY_PATH`:
 
 ```bash
 export LD_LIBRARY_PATH="$HOME/lightgbm-install/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+```
+
+
+For example, run DARTH+ on SIFT100M with HNSW:
+
+```bash
+build-native/darth-runners/darth_pipeline \
+  --dataset SIFT100M --dataset-dir-prefix /path/to/processed-data \
+  --index hnsw --method darth-plus --k 50 \
+  --index-filepath /path/to/indexes/sift-hnsw.index \
+  --threads 12 --training-threads 12
 ```
 
 ## Datasets
@@ -56,17 +67,6 @@ Dataset sources: [SIFT and GIST](http://corpus-texmex.irisa.fr/),
 [DEEP and Text2Image](https://research.yandex.com/blog/benchmarks-for-billion-scale-similarity-search),
 and [GloVe](https://nlp.stanford.edu/projects/glove/).
 
-## Run
-
-For example, run DARTH+ on SIFT100M with HNSW:
-
-```bash
-build-native/darth-runners/darth_pipeline \
-  --dataset SIFT100M --dataset-dir-prefix /path/to/processed-data \
-  --index hnsw --method darth-plus --k 50 \
-  --index-filepath /path/to/indexes/sift-hnsw.index \
-  --threads 12 --training-threads 12
-```
 
 ## References
 If you use DARTH or DARTH+, please cite:
