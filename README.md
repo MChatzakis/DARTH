@@ -1,32 +1,35 @@
-<img src="assets/darth-logo.png" alt="DARTH logo" width="500">
+<p align="center">
+  <img src="assets/darth-logo.png" alt="DARTH logo" width="500">
+</p>
 
-# DARTH: Declarative Recall Through Early Termination
+# DARTH+: Approximate Nearest Neighbor Search with Declarative Recall and Quality Guarantees
+## Manos Chatzakis, Yannis Papakonstantinou, Themis Palpanas
 
-DARTH uses a learned recall predictor to stop approximate nearest-neighbor
-search early. This repository integrates DARTH and DARTH+ with FAISS HNSW and
-IVF indexes. See the [SIGMOD 2026 paper](https://arxiv.org/abs/2505.19001v1)
-for the method and evaluation.
+DARTH and DARTH+ enable declarative recall for approximate nearest-neighbor
+search: specify a target recall, and a learned predictor estimates when to stop
+each query. Their adaptive early termination adjusts to query difficulty and
+reduces unnecessary search work.
 
-The C++ pipeline builds or loads an index, generates training observations,
-trains and validates LightGBM models, selects prediction intervals, and searches
-queries in one run. It does not need Python, intermediate CSV files, or
-pretrained models.
+DARTH+ extends DARTH with more efficient training data collection and
+query-dimension-aware prediction features. Its lower-bound variant can also
+provide optional probabilistic quality guarantees on individual queries. This
+repository integrates the methods with FAISS HNSW and IVF indexes, supporting
+L2 and inner-product search.
 
-## 1. Install dependencies
+The C++ pipeline builds or loads an index, trains and validates LightGBM
+models, selects prediction intervals, and searches queries in one run.
 
-The following is a CPU build on Ubuntu/Debian. You need a C++17 compiler,
-CMake **3.24 or newer**, Git, OpenMP, BLAS/LAPACK, and the LightGBM C++ shared
-library and headers. For example:
+## Installation
+
+For a CPU build on Ubuntu/Debian, install a C++17 compiler, CMake 3.24 or newer,
+Git, OpenMP, BLAS/LAPACK, and the LightGBM C++ library and headers:
 
 ```bash
 sudo apt update
 sudo apt install build-essential cmake git libopenblas-dev liblapack-dev
-cmake --version
 ```
 
-If your distribution supplies an older CMake, install a newer version before
-continuing. GCC's OpenMP runtime is included with the usual `build-essential`
-packages. To build LightGBM 4.5.0 in your home directory:
+For example, build and install LightGBM 4.5.0:
 
 ```bash
 git clone --recursive --branch v4.5.0 https://github.com/microsoft/LightGBM.git "$HOME/LightGBM"
@@ -36,14 +39,7 @@ cmake --build "$HOME/LightGBM/build" -j 4
 cmake --install "$HOME/LightGBM/build"
 ```
 
-The installation should contain `include/LightGBM/c_api.h` and
-`lib/lib_lightgbm.so`. See the [LightGBM installation guide](https://lightgbm.readthedocs.io/en/stable/Installation-Guide.html)
-for other platforms. A Python LightGBM package alone does not provide the C++
-headers required by this build.
-
-## 2. Build DARTH
-
-From the root of this repository:
+Build the pipeline from the repository root:
 
 ```bash
 cmake -S . -B build-native -DCMAKE_BUILD_TYPE=Release \
@@ -52,20 +48,18 @@ cmake -S . -B build-native -DCMAKE_BUILD_TYPE=Release \
 cmake --build build-native --target darth_pipeline -j 4
 ```
 
-Set `LIGHTGBM_ROOT` to your installation prefix if it is elsewhere. CMake can
-also take `LIGHTGBM_INCLUDE_DIR` and `LIGHTGBM_LIB` explicitly. If the runtime
-loader cannot find LightGBM, add its library directory to `LD_LIBRARY_PATH`:
+Adjust `LIGHTGBM_ROOT` for your installation. If the runtime loader cannot
+find LightGBM, add its library directory to `LD_LIBRARY_PATH`:
 
 ```bash
 export LD_LIBRARY_PATH="$HOME/lightgbm-install/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
 ```
 
-## 3. Prepare data
+## Prepare data
 
 The pipeline reads FAISS `.fvecs` vectors and optional `.ivecs` exact-neighbor
-labels. Use separate training, validation, and search query sets. The dataset
-loader expects a base directory containing a folder for each dataset; for
-example, SIFT100M uses:
+labels. Training, validation, and search queries must use separate files. For
+example, SIFT100M expects:
 
 ```text
 DATASET_DIRECTORY/SIFT100M/
@@ -77,23 +71,14 @@ DATASET_DIRECTORY/SIFT100M/
   validation.groundtruth.10K.k1000.ivecs # optional
 ```
 
-Other expected names are in [VectorDataLoader.cpp](common/VectorDataLoader.cpp).
-Missing training or validation ground truth is computed exactly, which can be
-expensive for large datasets. Search ground truth is needed only to evaluate
-recall. Optional Python data-preparation utilities are in [scripts/](scripts/);
-they use the separate dependencies in
-[requirements.txt](requirements.txt). Use Python 3.9–3.12 and install them
-with `python -m pip install -r requirements.txt`. The organizer's `main()`
-currently selects datasets in the source, so inspect its configuration before
-running it.
-
+See [VectorDataLoader.cpp](common/VectorDataLoader.cpp) for more information.
 Dataset sources: [SIFT and GIST](http://corpus-texmex.irisa.fr/),
 [DEEP and Text2Image](https://research.yandex.com/blog/benchmarks-for-billion-scale-similarity-search),
 and [GloVe](https://nlp.stanford.edu/projects/glove/).
 
-## 4. Run DARTH
+## Run
 
-For one supported dataset:
+For example, run DARTH+ on SIFT100M with HNSW:
 
 ```bash
 build-native/darth-runners/darth_pipeline \
@@ -103,72 +88,29 @@ build-native/darth-runners/darth_pipeline \
   --threads 8 --training-threads 8
 ```
 
-The index is loaded if it exists; otherwise it is built and saved. Cached indexes
-are checked against the base vectors and any supplied construction settings. Omit
-`--index-filepath` to keep the index in memory. Use `--index ivf --nlist 1000
---nprobe 100` for IVF, or `--method darth` / `--method darth-plus-lb` for the
-other methods. Add `--evaluate` to report recall using the dataset loader's
-test ground truth, or compute exact test neighbors if that file is absent. Use
-`--results /path/to/prefix` to save neighbors and distances, and
-`--save-models /path/to/prefix` to export the models.
-Create the parent directory for `--results` before running.
+The pipeline loads the index if it exists, or builds and saves it otherwise.
+Omit `--index-filepath` to keep it in memory. Use `--index ivf --nlist 1000
+--nprobe 100` for IVF, or `--method darth` / `--method darth-plus-lb` for
+DARTH or the lower-bound variant. Add `--evaluate` to report recall; missing
+test ground truth is computed exactly. Use `--target-recall R` or
+`--target-recalls R,R,...` to set recall targets, and `--results` or
+`--save-models` with a path prefix to save outputs. Create the results parent
+directory first.
 
-The pipeline prints training and validation MSE, MAE, and R², its selected
-initial and minimum prediction intervals (IPI and MPI), and search timing. By
-default it uses 10,000 training queries, 1,000 validation queries, and 1,000
-test queries. Use `--training-query-num`, `--validation-query-num`, and
-`--query-num` to change those counts; set a count to `0` to use every query in
-that file. Optional calibration uses all calibration queries by default and
-can be limited with `--calibration-query-num`.
-When search ground truth is supplied, `rqut` is the fraction of queries whose
-recall is strictly below the target; `queries_below_target` is the corresponding
-number of queries.
-
-To use another dataset, add its vector and ground-truth filenames to
-[VectorDataLoader.cpp](common/VectorDataLoader.cpp), then supply its name and
-base directory. Training, validation, and testing must use distinct files.
-See `build-native/darth-runners/darth_pipeline --help` for all options,
-including index settings, metrics, and optional conformal calibration.
-
-## Run across datasets
-
-The sweep script runs the pipeline once per dataset: it trains the models once
-and searches each requested recall target. By default it selects
-all ten names understood by the loader: `SIFT10M`, `SIFT50M`, `SIFT100M`,
-`DEEP10M`, `DEEP50M`, `DEEP100M`, `GIST1M`, `GLOVE100`, `T2I10M`, and
-`T2I100M`. Prepare each selected dataset first. It caches one index per dataset,
-index type, metric, and construction settings; it reports failures and continues
-with the remaining datasets.
+## Experiments
+The experiment scripts run methods across datasets and recall targets. Prepare
+the selected datasets first. For example:
 
 ```bash
 DATASET_DIRECTORY=/path/to/processed-data INDEX_DIRECTORY=/path/to/indexes \
   K=50 THREADS=8 bash experiments/run_darth.sh
 ```
 
-Edit the settings and dataset list near the top of the script, or override them
-with environment variables. For example, `DATASETS="SIFT100M GIST1M"` selects
-two datasets, `INDEX=ivf NLIST=1000 NPROBE=100` selects IVF, and
-`DARTH_DRY_RUN=1` prints commands without running them. Additional pipeline
-options, such as `--training-query-num 20000` or `--evaluate`, can be passed
-after the script name.
-
-The default recall targets are `0.80, 0.85, 0.90, 0.95, 0.99` for both the
-DARTH, LAET and REM C++ runners and the experiment scripts. To override them,
-use `--target-recall R` for one target or `--target-recalls R,R,...` for several
-in those runners; use `TARGET_RECALL` or space-separated `TARGET_RECALLS` for
-a script.
-The models are shared by all targets, while each target has its own intervals
-and search results. The script uses common settings for all selected datasets, not the paper's
-per-dataset index configurations. Set `SAVE_RESULTS=1` and optionally `RESULTS_DIRECTORY` to save
-neighbors, or set `SAVE_MODELS=1` and optionally `MODELS_DIRECTORY` to export
-models. Result files include the target; exported model files are shared across
-targets. Repeated runs with the same settings overwrite their previous outputs.
-
-## Other approaches
-
-The launchers below run each method across targets. DARTH+, LAET, and REM use
-the same dataset and index settings as `run_darth.sh`. Pass `--evaluate` to
-the native launchers to compute test recall.
+Set `DATASETS="SIFT100M GIST1M"` to select datasets, `INDEX=ivf NLIST=1000
+NPROBE=100` for IVF, or `DARTH_DRY_RUN=1` to print commands. The scripts use
+common settings across datasets, rather than the paper's per-dataset index
+configurations. Pass additional pipeline options after the script name. See
+each launcher and its `--help` for settings and dependencies.
 
 | Method | Launcher |
 | --- | --- |
@@ -184,31 +126,45 @@ the native launchers to compute test recall.
 | ConANN | [run_conann.sh](experiments/run_conann.sh) |
 | Quake | [run_quake.sh](experiments/run_quake.sh) |
 
-The plain and fixed-distance baselines use the same search budget for every
-target; only their target-dependent RQUT statistic changes. Set
-`DISTANCE_THRESHOLD` for the fixed-distance baseline. Ada-ef, Auncel, ConANN,
-and Quake use their own comparison protocols and dependencies. Auncel and
-ConANN need BLAS/LAPACK, OpenMP, and Python with NumPy; ConANN also needs GSL.
-Ada-ef needs Eigen 3.4, Boost, OpenMP, Python and NumPy. Quake needs Python
-3.10–3.12, CMake 3.24+, and BLAS/LAPACK. Run each launcher with `--help` for
-its dataset, ground-truth and configuration requirements. Auncel, ConANN and
-Quake can create missing shared IVF indexes; `DARTH_IVF_INDEX_DIR` selects
-where to store them.
-
-## Citation
+## References
+If you use DARTH or DARTH+, please cite:
 
 ```bibtex
 @article{chatzakis2025darth,
-  title={DARTH: Declarative Recall Through Early Termination for Approximate Nearest Neighbor Search},
-  author={Manos Chatzakis and Yannis Papakonstantinou and Themis Palpanas},
+  title={Darth: Declarative recall through early termination for approximate nearest neighbor search},
+  author={Chatzakis, Manos and Papakonstantinou, Yannis and Palpanas, Themis},
+  journal={Proceedings of the ACM on Management of Data},
+  volume={3},
+  number={4},
+  pages={1--26},
   year={2025},
-  eprint={2505.19001},
-  archivePrefix={arXiv},
-  primaryClass={cs.DB},
-  url={https://arxiv.org/abs/2505.19001}
+  publisher={ACM, New York, NY, USA}
+}
+
+@article{chatzakis2026darth+,
+  title={DARTH+: Approximate Nearest Neighbor Search with Declarative Recall and Quality Guarantees},
+  author={Chatzakis, Manos and Papakonstantinou, Yannis and Palpanas, Themis},
+  journal={HAL Preprint},
+  year={2026}
+}
+
+@article{chatzakis2026declarativephd,
+  title={Declarative Recall for Approximate Vector Search},
+  author={Chatzakis, Manos},
+  journal={Proceedings of the VLDB Endowment. ISSN},
+  volume={2150},
+  pages={8097}
+}
+
+@inproceedings{chatzakis2026darth+workshop,
+  title={DARTH+: Vector Search with Declarative Recall and Guarantees},
+  author={Chatzakis, Manos and Papakonstantinou, Yannis and Palpanas, Themis},
+  booktitle={The 2nd Workshop on Vector Databases},
+  year={2026},
 }
 ```
 
+## About
 This repository includes FAISS code, which remains subject to its original
 license. See [LICENSE](LICENSE). For questions, contact
 [the authors](mailto:manos.chatzaki@gmail.com).
