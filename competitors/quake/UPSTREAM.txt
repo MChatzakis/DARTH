@@ -1,0 +1,9 @@
+{'commit': '0651c88c5c71343191ef06ee4ed292cb4a01e1aa',
+ 'dependencies': {'concurrentqueue': {'commit': '6dd38b8a1dbaa7863aa907045f32308a56a6ff5d',
+                                      'url': 'https://github.com/cameron314/concurrentqueue.git'},
+                  'faiss': {'commit': '943d08bdad7946b22f56d040756669ee444dd681',
+                            'url': 'https://github.com/facebookresearch/faiss.git'}},
+ 'git_metadata_removed': True,
+ 'pruned': 'Unused examples, tests, docs, bindings and bundled dependencies '
+           'were removed; CPU FAISS and concurrentqueue remain.',
+ 'repository': 'https://github.com/marius-team/quake'}

@@ -1,0 +1,61 @@
+*.swp
+*.swo
+*.o
+*.a
+*.dSYM
+*.so
+*.dylib
+*.pyc
+*~
+Makefile
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+/build/
+/build-native/
+/config.*
+/aclocal.m4
+/autom4te.cache/
+/makefile.inc
+/bin/
+/c_api/bin/
+/c_api/gpu/bin/
+/tests/test
+/tests/gtest/
+faiss/python/swigfaiss_avx2.swig
+faiss/python/swigfaiss_avx512.swig
+experiments/results/
+experiments/ivf-results/
+.cache/
+.vscode/
+predictor_models/
+/models/
+
+notebooks_scripts/nlist1000_nprobe100_qs10000.txt
+
+# Local Quake evaluation dependencies and build artifacts.
+/competitors/quake/.venv/
+/competitors/quake/build/
+/competitors/quake/logs/
+/competitors/quake/__pycache__/
+
+# Local Ada-ef build artifacts, recomputed ground truth, and HNSW competitor results.
+/competitors/Ada-ef/build/
+/competitors/Ada-ef/data/
+experiments/hnsw-results/
+
+# Local Auncel build artifacts.
+/competitors/Auncel/build/
+
+# Generated indexes and baseline training traces.
+/indexes/
+/experiments/training-data/
+
+.agents/
+.aws/
+build/
+.codex/
+
+# Local project guidance for language models.
+/LLMs.md

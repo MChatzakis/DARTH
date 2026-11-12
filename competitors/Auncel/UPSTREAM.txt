@@ -1,0 +1,74 @@
+{'commit': 'd0afbdff81bf9b752a180d0cccae542584af9dca',
+ 'git_metadata_removed': True,
+ 'kept': ['LICENSE and Auncel/ CPU sources and headers'],
+ 'modified_from_upstream': {'Auncel/IndexIVF.cpp (compile)': "'#pragma omp "
+                                                             "for' preceded a "
+                                                             'declaration '
+                                                             'instead of its '
+                                                             'loop; the '
+                                                             'declaration '
+                                                             'moved above the '
+                                                             'pragma. Upstream '
+                                                             'does not compile '
+                                                             'with OpenMP '
+                                                             'enabled.',
+                            'Auncel/IndexIVF.cpp (nlist)': 'The trace index '
+                                                           'used during search '
+                                                           'is clamped to the '
+                                                           'last trace. Traces '
+                                                           'exist for powers '
+                                                           'of two up to '
+                                                           'nlist/8; upstream '
+                                                           'assumed nlist = '
+                                                           '1024 and reads '
+                                                           'past the trace '
+                                                           "array for DARTH's "
+                                                           'nlist (1000, '
+                                                           '10000, 20000).',
+                            'Auncel/IndexIVF.cpp and Auncel/IVF_pro.h (budget)': 'error_pro::max_scan_lists '
+                                                                                 'caps '
+                                                                                 'the '
+                                                                                 'scanned '
+                                                                                 'lists '
+                                                                                 'at '
+                                                                                 "DARTH's "
+                                                                                 'nprobe '
+                                                                                 '(0 '
+                                                                                 '= '
+                                                                                 'no '
+                                                                                 'cap), '
+                                                                                 'so '
+                                                                                 'Auncel '
+                                                                                 'shares '
+                                                                                 'the '
+                                                                                 'IVF '
+                                                                                 'budget '
+                                                                                 'used '
+                                                                                 'by '
+                                                                                 'DARTH+, '
+                                                                                 'ConANN, '
+                                                                                 'and '
+                                                                                 'Quake.',
+                            'Auncel/profile.cpp (nlist)': 'The trace-log loop '
+                                                          'after training is '
+                                                          'bounded by the '
+                                                          'number of traces '
+                                                          '(same nlist = 1024 '
+                                                          'assumption).'},
+ 'paper': 'Zili Zhang, Chao Jin, Linpeng Tang, Xuanzhe Liu, Xin Jin. Fast, '
+          'Approximate Vector Queries on Very Large Unstructured Datasets. '
+          'USENIX NSDI 2023.',
+ 'removed_from_upstream': ['.git/',
+                           '.gitignore',
+                           'README.md',
+                           "LAET/ (the authors' copy of the LAET baseline)",
+                           "faiss/ (the authors' modified FAISS baseline)",
+                           'figures/',
+                           'Auncel/{gpu,python,tutorial,demos,tests,conda,c_api,benchs,misc,dist,example_makefiles,acinclude,build-aux}/',
+                           'Auncel/{configure,configure.ac,makefile.inc.in,Makefile,depend,build.sh,Dockerfile}',
+                           'Auncel/{README.md,INSTALL.md,CONTRIBUTING.md,CODE_OF_CONDUCT.md,.gitignore,.github/,.travis/,.travis.yml,.dockerignore}',
+                           'Auncel/eval/{effect_error.cpp,effect_time.cpp,effect.sh,overhead.cpp,overhead.sh,Makefile,trained_index/}',
+                           'Auncel/eval and Auncel/hyperparameter.txt'],
+ 'replaced': {'build': 'CMakeLists.txt compiles the same top-level sources the '
+                       'upstream autoconf build put in libfaiss (CPU only).'},
+ 'repository': 'https://github.com/pkusys/Auncel'}

@@ -1,0 +1,6 @@
+# Generated dataset splits, build files, cache and comparison output.
+/data/
+**/build/
+**/conann-cache/
+*.log
+*.csv

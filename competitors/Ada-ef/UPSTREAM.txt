@@ -1,0 +1,38 @@
+{'commit': 'ed463f9993868f7ecc7c103920644e7f94abb377',
+ 'git_metadata_removed': True,
+ 'modified_from_upstream': {'hnswlib/adaptive_ef.h': 'RecallEstimator::init '
+                                                     'and EfAdapter::init no '
+                                                     'longer drop learn '
+                                                     'queries with zero '
+                                                     'recall; they count as '
+                                                     "recall 0. Upstream's "
+                                                     'RecallEstimator indexed '
+                                                     'the shortened list by '
+                                                     'query position, reading '
+                                                     'past its end.',
+                            'hnswlib/hnswalg.h': 'Removed unrelated Patience '
+                                                 'in Proximity search; '
+                                                 'retained Ada-ef search.'},
+ 'paper': 'Chao Zhang and Renee J. Miller. Distribution-Aware Exploration for '
+          'Adaptive HNSW Search. Proc. ACM Manag. Data 4(1), article 25 '
+          '(SIGMOD 2026). doi:10.1145/3786639',
+ 'removed_from_upstream': ['.git/',
+                           '.github/',
+                           '.gitignore',
+                           'benchmarking-darth/',
+                           'examples/',
+                           'tests/',
+                           'python_bindings/',
+                           'setup.py',
+                           'pyproject.toml',
+                           'MANIFEST.in',
+                           'Makefile',
+                           'setup.sh',
+                           'ALGO_PARAMS.md',
+                           'TESTING_RECALL.md',
+                           'experiments_driver/data_prep.ipynb',
+                           'experiments_driver/'],
+ 'replaced': ['CMakeLists.txt'],
+ 'repository': 'https://github.com/chaozhang-cs/hnsw-ada-ef',
+ 'unchanged_from_upstream': ['LICENSE and remaining hnswlib headers, except '
+                             'the noted changes']}

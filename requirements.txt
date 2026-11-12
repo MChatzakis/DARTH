@@ -1,0 +1,6 @@
+# Optional dataset-preparation utilities (Python 3.9–3.12).
+# The native DARTH pipeline has no Python dependency.
+faiss-cpu==1.8.0.post1
+h5py==3.12.1
+numpy==1.26.4
+tqdm==4.66.5

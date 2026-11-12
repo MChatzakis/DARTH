@@ -1,0 +1,2 @@
+add_executable(ivf_index_builder EXCLUDE_FROM_ALL ivf_index_builder.cpp ComUtil.cpp VectorDataLoader.cpp)
+target_link_libraries(ivf_index_builder PRIVATE faiss)

@@ -1,0 +1,21 @@
+# CPU-only FAISS/ConANN build. See LICENSE for the upstream license.
+cmake_minimum_required(VERSION 3.24)
+project(faiss VERSION 1.9.0 LANGUAGES CXX)
+include(GNUInstallDirs)
+set(CMAKE_CXX_STANDARD 17)
+list(APPEND CMAKE_MODULE_PATH "${PROJECT_SOURCE_DIR}/cmake")
+
+set(FAISS_OPT_LEVEL "generic" CACHE STRING "FAISS CPU optimization level")
+option(FAISS_USE_LTO "Enable link-time optimization" OFF)
+option(FAISS_ENABLE_GPU "Enable GPU indexes" OFF)
+option(FAISS_ENABLE_PYTHON "Build Python bindings" OFF)
+option(FAISS_ENABLE_C_API "Build the C API" OFF)
+option(FAISS_ENABLE_RAFT "Enable RAFT" OFF)
+if(FAISS_ENABLE_GPU OR FAISS_ENABLE_PYTHON OR FAISS_ENABLE_C_API OR FAISS_ENABLE_RAFT)
+  message(FATAL_ERROR "The bundled ConANN comparison supports CPU C++ builds only.")
+endif()
+
+add_subdirectory(faiss)
+add_subdirectory(eval)
+find_package(GSL REQUIRED)
+target_link_libraries(faiss PRIVATE GSL::gsl GSL::gslcblas)
