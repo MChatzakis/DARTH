@@ -6,12 +6,11 @@
 
 <h3 align="center">Manos Chatzakis, Yannis Papakonstantinou, Themis Palpanas<h3>
  
-<h4 align="center">⚠️ Please note that the code recently went under heavy refactoring. Please contact us if you notice any issues ⚠️ </h3>
+<h5 align="center">⚠️ Please note that the code recently went under heavy refactoring. Please contact us if you notice any issues ⚠️ </h5>
 
 DARTH and DARTH+ enable declarative recall for approximate nearest-neighbor search: specify a target recall, and a learned predictor estimates when to stop each query. 
 Their adaptive early termination adjusts to query difficulty and
 reduces unnecessary search work.
-
 DARTH+ extends DARTH with more efficient training data collection and
 query-dimension-aware prediction features. Its lower-bound variant can also
 provide optional probabilistic lower bounds on recall.
