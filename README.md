@@ -2,9 +2,9 @@
   <img src="assets/darth-logo.png" alt="DARTH logo" width="500">
 </p>
 
-<h2 align="center">Declarative Recall Through Early Termination for Approximate Nearest Neighbor Search</h2>
+<h2 align="center">Vector Search with Declarative Recall and Probabilistic Lower Bounds</h2>
 
-<h3 align="center">Manos Chatzakis, Yannis Papakonstantinou, Themis Palpanas<h3>
+<h4 align="center">Manos Chatzakis, Yannis Papakonstantinou, Themis Palpanas<h4>
  
 <h5 align="center">⚠️ Please note that the code recently went under heavy refactoring. Please contact us if you notice any issues ⚠️ </h5>
 
@@ -15,7 +15,7 @@ DARTH+ extends DARTH with more efficient training data collection and
 query-dimension-aware prediction features. Its lower-bound variant can also
 provide optional probabilistic lower bounds on recall.
 
-## How to run
+## How to Run
 
 Build the pipeline from the repository root:
 
