@@ -1,8 +1,10 @@
 <p align="center">
-  <img src="assets/darth-logo-readme.png" alt="DARTH logo" width="300">
+  <img src="assets/darth-logo-readme.png" alt="DARTH logo" width="350">
 </p>
 
-<h2 align="center">DARTH+: Vector Search with Declarative Recall and Probabilistic Lower Bounds</h2>
+<h2 align="center">DARTH / DARTH+</h2>
+
+<h2 align="center">Vector Search with Declarative Recall and Probabilistic Lower Bounds</h2>
 
 <h4 align="center">Manos Chatzakis, Yannis Papakonstantinou, Themis Palpanas<h4>
  
