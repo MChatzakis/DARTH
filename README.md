@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="assets/darth-logo-readme.png" alt="DARTH logo" width="500">
+  <img src="assets/darth-logo-readme.png" alt="DARTH logo" width="300">
 </p>
 
-<h2 align="center">Vector Search with Declarative Recall and Probabilistic Lower Bounds</h2>
+<h2 align="center">DARTH+: Vector Search with Declarative Recall and Probabilistic Lower Bounds</h2>
 
 <h4 align="center">Manos Chatzakis, Yannis Papakonstantinou, Themis Palpanas<h4>
  
-<h5 align="center">⚠️ Please note that the code recently went under heavy refactoring. Please contact us if you notice any issues ⚠️ </h5>
+<h5 align="center">⚠️ The code recently went under heavy refactoring. Please contact us if you notice any issues ⚠️ </h5>
 
 DARTH and DARTH+ enable declarative recall for approximate nearest-neighbor search: specify a target recall, and a learned predictor estimates when to stop each query. 
 Their adaptive early termination adjusts to query difficulty and
@@ -56,8 +56,8 @@ DATASET_DIRECTORY/SIFT100M/
   learn.1M.fvecs
   validation.10K.fvecs
   query.10K.fvecs
-  learn.groundtruth.1M.k1000.ivecs       # optional
-  validation.groundtruth.10K.k1000.ivecs # optional
+  learn.groundtruth.1M.k1000.ivecs
+  validation.groundtruth.10K.k1000.ivecs
 ```
 
 See [VectorDataLoader.cpp](common/VectorDataLoader.cpp) for more information.
