@@ -14,8 +14,10 @@ DARTH and DARTH+ enable declarative recall for approximate nearest-neighbor sear
 Their adaptive early termination adjusts to query difficulty and
 reduces unnecessary search work.
 DARTH+ extends DARTH with more efficient training data collection and
-query-dimension-aware prediction features. Its lower-bound variant can also
-provide optional probabilistic lower bounds on recall.
+query-dimension-aware prediction features. 
+Its lower-bound variant can also provide optional probabilistic lower bounds on recall.
+
+[DARTH: SIGMOD 26](https://dl.acm.org/doi/10.1145/3749160) [DARTH+: Preprint 2027 (under revision)](https://hal.science/hal-05566027)
 
 ## How to Run
 
