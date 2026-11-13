@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/darth-logo.png" alt="DARTH logo" width="500">
+  <img src="assets/darth-logo-readme.png" alt="DARTH logo" width="500">
 </p>
 
 <h2 align="center">Vector Search with Declarative Recall and Probabilistic Lower Bounds</h2>
@@ -107,5 +107,6 @@ If you use DARTH or DARTH+, please cite:
 
 ## About
 This repository includes FAISS code, which remains subject to its original
-license. See [LICENSE](LICENSE). For questions, contact
-[the authors](mailto:manos.chatzaki@gmail.com).
+license. 
+See [LICENSE](LICENSE). For questions, contact [the authors](mailto:manos.chatzaki@gmail.com).
+The DARTH logo was created by [Eva Chamilaki](https://evachamilaki.github.io/).
