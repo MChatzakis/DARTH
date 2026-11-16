@@ -8,7 +8,7 @@
 
 <h4 align="center">Manos Chatzakis, Yannis Papakonstantinou, Themis Palpanas<h4>
  
-<h5 align="center">⚠️ The code recently went under heavy refactoring. Please contact us if you notice any issues ⚠️ </h5>
+<h5 align="center">⚠️ The code recently went under refactoring. Please contact us if you notice issues ⚠️ </h5>
 
 DARTH and DARTH+ enable declarative recall for approximate nearest-neighbor search: specify a target recall, and a learned predictor estimates when to stop each query. 
 Their adaptive early termination adjusts to query difficulty and
@@ -111,7 +111,7 @@ If you use DARTH or DARTH+, please cite:
 ```
 
 ## About
-This repository includes FAISS code, which remains subject to its original
-license. 
-See [LICENSE](LICENSE). For questions, contact [the authors](mailto:manos.chatzaki@gmail.com).
+This repository includes FAISS code, which remains [subject to its original
+license](LICENSE). 
+For questions, contact [the authors](mailto:manos.chatzaki@gmail.com).
 The DARTH logo was created by [Eva Chamilaki](https://evachamilaki.github.io/).
